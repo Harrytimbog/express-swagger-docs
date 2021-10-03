@@ -30,6 +30,8 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
  *
   */
 
+// Drones Get route
+
 app.get('/drones', (req, res) => {
   res.send([
     {
@@ -44,5 +46,28 @@ app.get('/drones', (req, res) => {
   ])
 });
 
+// Route to create new drone
+
+/**
+ * @swagger
+ * /drones:
+ *   post:
+ *      description: Create a new drone
+ *      parameters:
+ *      - name: model
+ *        description: model of the drone
+ *        in: formData
+ *        required: true
+ *        type: string
+ *      responses:
+ *        201:
+ *          description: Created
+ *
+  */
+
+
+app.post('/drones', (req, res) => {
+  res.status(201).send();
+});
 
 app.listen(5000, () => console.log("listening on 5000"));
